@@ -15,17 +15,29 @@ using System.Diagnostics;
 
 namespace Currency.Controllers
 {
+    /// <summary>
+    /// Currencies API Controller
+    /// </summary>
     public class CurrenciesController : ApiController
     {
         private CurrencyDbContext db = new CurrencyDbContext();
 
         // GET: api/Currencies
+        /// <summary>
+        /// Get All Known Currencies
+        /// </summary>
+        /// <returns>List of Currencies</returns>
         public IQueryable<Models.Currency> GetCurrencies()
         {
             return db.Currencies;
         }
 
         // GET: api/Currencies/5
+        /// <summary>
+        /// Get a specific currency
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <returns>Requested Currency</returns>
         [ResponseType(typeof(Models.Currency))]
         public IHttpActionResult GetCurrency(long id)
         {
@@ -37,6 +49,14 @@ namespace Currency.Controllers
 
             return Ok(currency);
         }
+
+        /// <summary>
+        /// Convert amount from a currency to another
+        /// </summary>
+        /// <param name="from">From currency</param>
+        /// <param name="to">To currency</param>
+        /// <param name="amount">Amount to be converted</param>
+        /// <returns></returns>
         [ResponseType(typeof(decimal))]
         [HttpGet]
         [Route("api/Currencies/{from}/{to}/{amount}")]
@@ -52,6 +72,10 @@ namespace Currency.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Sync List of Currencies with OpenExchangeRates.org
+        /// </summary>
+        /// <returns>List of Currencies</returns>
         [HttpPost]
         [Route("api/Currencies/Sync")]
         public IQueryable<Models.Currency> ImportCurrencies()

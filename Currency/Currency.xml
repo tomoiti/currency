@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Currency</name>
+    </assembly>
+    <members>
+        <member name="T:Currency.Controllers.CurrenciesController">
+            <summary>
+            Currencies API Controller
+            </summary>
+        </member>
+        <member name="M:Currency.Controllers.CurrenciesController.GetCurrencies">
+            <summary>
+            Get All Known Currencies
+            </summary>
+            <returns>List of Currencies</returns>
+        </member>
+        <member name="M:Currency.Controllers.CurrenciesController.GetCurrency(System.Int64)">
+            <summary>
+            Get a specific currency
+            </summary>
+            <param name="id">Id</param>
+            <returns>Requested Currency</returns>
+        </member>
+        <member name="M:Currency.Controllers.CurrenciesController.ConvertCurrency(System.String,System.String,System.Decimal)">
+            <summary>
+            Convert amount from a currency to another
+            </summary>
+            <param name="from">From currency</param>
+            <param name="to">To currency</param>
+            <param name="amount">Amount to be converted</param>
+            <returns></returns>
+        </member>
+        <member name="M:Currency.Controllers.CurrenciesController.ImportCurrencies">
+            <summary>
+            Sync List of Currencies with OpenExchangeRates.org
+            </summary>
+            <returns>List of Currencies</returns>
+        </member>
+    </members>
+</doc>
