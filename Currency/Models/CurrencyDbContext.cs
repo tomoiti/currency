@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,8 @@ namespace Currency.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CurrencyDbContext>());
+            modelBuilder.Entity<Currency>().Property(e=>e.Code)
+                .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("UQ_Currency", 1) { IsUnique = true }));
         }
     }
 }
