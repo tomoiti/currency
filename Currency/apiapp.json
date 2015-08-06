@@ -1,0 +1,14 @@
+﻿{
+  "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+  "id": "Currency",
+  "namespace": "zbra.com.br",
+  "gateway": "2015-01-14",
+  "version": "1.0.0",
+  "title": "Currency",
+  "summary": "ZBRA Currency Converter - Azure Tutorial",
+  "author": "Ricardo Tomoiti Ushisima",
+  "endpoints": {
+    "apiDefinition": "/swagger/docs/v1",
+    "status": null
+  }
+}
