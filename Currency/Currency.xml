@@ -21,6 +21,8 @@
             </summary>
             <param name="id">Id</param>
             <returns>Requested Currency</returns>
+            <response code="200" type="Currency">Requested Currency</response>
+            <response code="404" type="void">Currency Not Found</response>
         </member>
         <member name="M:Currency.Controllers.CurrenciesController.ConvertCurrency(System.String,System.String,System.Decimal)">
             <summary>
@@ -29,7 +31,9 @@
             <param name="from">From currency</param>
             <param name="to">To currency</param>
             <param name="amount">Amount to be converted</param>
-            <returns></returns>
+            <returns>Converted Amount</returns>
+            <response code="200" type="Currency">Converted Amount</response>
+            <response code="404" type="void">One of the currencies cannot be found</response>
         </member>
         <member name="M:Currency.Controllers.CurrenciesController.ImportCurrencies">
             <summary>

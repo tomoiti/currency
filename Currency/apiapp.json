@@ -10,5 +10,6 @@
   "endpoints": {
     "apiDefinition": "/swagger/docs/v1",
     "status": null
-  }
+  },
+  "authentication": [{"type": "microsoftaccount"}]
 }

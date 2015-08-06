@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using Currency.Models;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Currency.Models;
-using System.IO;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics;
 
 namespace Currency.Controllers
 {
@@ -38,6 +33,8 @@ namespace Currency.Controllers
         /// </summary>
         /// <param name="id">Id</param>
         /// <returns>Requested Currency</returns>
+        /// <response code="200" type="Currency">Requested Currency</response>
+        /// <response code="404" type="void">Currency Not Found</response>
         [ResponseType(typeof(Models.Currency))]
         public IHttpActionResult GetCurrency(long id)
         {
@@ -56,7 +53,9 @@ namespace Currency.Controllers
         /// <param name="from">From currency</param>
         /// <param name="to">To currency</param>
         /// <param name="amount">Amount to be converted</param>
-        /// <returns></returns>
+        /// <returns>Converted Amount</returns>
+        /// <response code="200" type="Currency">Converted Amount</response>
+        /// <response code="404" type="void">One of the currencies cannot be found</response>
         [ResponseType(typeof(decimal))]
         [HttpGet]
         [Route("api/Currencies/{from}/{to}/{amount}")]
